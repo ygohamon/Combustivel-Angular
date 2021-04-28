@@ -1,0 +1,51 @@
+<mat-card>
+    <mat-card-title>Usuarios</mat-card-title>
+<hr>
+<mat-card-subtitle>Novo Usuario</mat-card-subtitle>
+<form>
+    <mat-form-field>
+        <input matInput placeholder="Nome" type="text" name = "nome" [(ngModel)]="usuario.nome">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Email" type="text" name = "email" [(ngModel)]="usuario.email">
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+        <input matInput placeholder="Login" type="text" name = "login" [(ngModel)]="usuario.login">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <input matInput placeholder="Senha" type="password" name = "login" [(ngModel)]="usuario.senha">
+    </mat-form-field>
+    <br/>
+
+
+
+    <button mat-raised-button type="button" (click)="cadastrar()">Cadastrar</button>
+
+</form>
+
+<hr>
+<mat-card-subtitle>Usuarios Cadastrados</mat-card-subtitle>
+<table>  
+    
+    <tr>
+        <th>#id</th>
+        <th>nome</th>
+        <th>email</th>
+        <th>login</th>
+        <th>admin</th>
+        <th>ações</th>
+    </tr>
+    <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.login}}</td>
+        <td>{{usuario.admin}}</td>
+        <td><button mat-raised-button (click)="atualizar(usuario.id)"><mat-icon>edit</mat-icon></button> 
+            <button mat-raised-button (click)="remover(usuario.id)"><mat-icon>delete</mat-icon></button> </td>
+    </tr>
+
+</table>
+</mat-card>

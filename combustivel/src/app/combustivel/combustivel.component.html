@@ -1,0 +1,48 @@
+<mat-card>
+    <mat-card-title>Combustivel</mat-card-title>
+<hr>
+<mat-card-subtitle>Novo Historico</mat-card-subtitle>
+<form>
+    <mat-form-field>
+        <input matInput placeholder="Combustivel" type="text" name = "nome" [(ngModel)]="combustivel.combustivel">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <input matInput placeholder="Data" type="data" name = "data" [(ngModel)]="combustivel.data">
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+        <input matInput placeholder="Preço" type="number" name = "preco" [(ngModel)]="combustivel.preco">
+    </mat-form-field>
+    
+
+    <br/>
+
+
+
+    <button mat-raised-button type="button" (click)="cadastrar()">Cadastrar</button>
+
+</form>
+
+<hr>
+<mat-card-subtitle>Historico Cadastrados</mat-card-subtitle>
+<table>
+    
+    <tr>
+        <th>id</th>
+        <th>combustivel</th>
+        <th>data</th>
+        <th>preço</th>
+        <th>ações</th>
+    </tr>
+    <tr *ngFor="let combustivel of combustiveis">
+        <td>{{combustivel.id}}</td>
+        <td>{{combustivel.combustivel}}</td>
+        <td>{{combustivel.data}}</td>
+        <td>{{combustivel.preco}}</td>
+        <td><button mat-raised-button (click)="atualizar(combustivel.id)"><mat-icon>edit</mat-icon></button> 
+        <button mat-raised-button (click)="remover(combustivel.id)"><mat-icon>delete</mat-icon></button> </td>
+    </tr>
+
+</table>
+</mat-card>
